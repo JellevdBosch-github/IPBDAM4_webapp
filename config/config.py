@@ -10,7 +10,7 @@ HOST = '127.0.0.1' if DEBUG else '0.0.0.0'
 PORT = 5000
 
 # Database config
-SQLALCHEMNY_DATABASE_URI_STAGING = 'mysql+pymysql://root@127.0.0.1:3306/staging'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root@127.0.0.1:3306/staging'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Protection against *Cross-site Request Forgery (CSRF)*
@@ -21,4 +21,10 @@ CSRF_SESSION_KEY = "secret"
 
 # Secret key for cookies, session
 SECRET_KEY = "secret"
+
+DB_HOST = '127.0.0.1' if DEBUG else '127.0.0.1'  # change for production
+DB_PORT = 3306
+DB_USER = 'root'
+DB_NAME = 'staging'
+DB_PASS = ''
 

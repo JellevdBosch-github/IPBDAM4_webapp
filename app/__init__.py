@@ -8,7 +8,7 @@ app.config.update(
     SECRET_KEY=config.SECRET_KEY,
     CSRF_SESSION_KEY=config.CSRF_SESSION_KEY,
     CSRF_ENABLED=config.CSRF_ENABLED,
-    SQLALCHEMNY_DATABASE_URI_STAGING=config.SQLALCHEMNY_DATABASE_URI_STAGING,
+    SQLALCHEMY_DATABASE_URI=config.SQLALCHEMY_DATABASE_URI,
     SQLALCHEMY_TRACK_MODIFICATIONS=config.SQLALCHEMY_TRACK_MODIFICATIONS
 )
 Bootstrap(app)
@@ -21,11 +21,11 @@ def not_found(error):
 
 
 # from app.account.controller import mod_account as account_module
-# from app.store.controller import mod_store as store_module
-# from app.dashboard.controller import mod_dashboard as dashboard_module
+from app.routes.trade.controller import mod_trade as trade_module
+from app.routes.dashboard.controller import mod_dashboard as dashboard_module
 
 # app.register_blueprint(account_module)
-# app.register_blueprint(store_module)
-# app.register_blueprint(dashboard_module)
+app.register_blueprint(trade_module)
+app.register_blueprint(dashboard_module)
 
 db.create_all()

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block head %}
+    <style>th {font-size: 9px} td {font-size: 11}</style>
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <main role="main" class="row">
+        <div class="col-md-6">
+            <h4 style="color: black" class="display-5">Primary trades</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date time</th>
+                            <th>Side taken</th>
+                            <th>(€) Wallet before trade</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>EUR Value (€)</th>
+                            <th>USD Value ($)</th>
+                            <th>DOGE Value</th>
+                            <th>Status</th>
+                            <th>Success</th>
+                            <th>Error code</th>
+                            <th>Error message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trade in p_trades %}
+                            <tr>
+                                <td>{{ trade['id'] }}</td>
+                                <td>{{ trade['date_time'] }}</td>
+                                <td>{{ trade['taker_side'] }}</td>
+                                <td>{{ trade['wallet_eur_value'] }}</td>
+                                <td>{{ trade['price'] }}</td>
+                                <td>{{ trade['quantity'] }}</td>
+                                <td>{{ trade['eur_value'] }}</td>
+                                <td>{{ trade['usd_value'] }}</td>
+                                <td>{{ trade['doge_value'] }}</td>
+                                <td>{{ trade['status'] }}</td>
+                                <td>{{ trade['success'] }}</td>
+                                <td>{{ trade['error_code'] }}</td>
+                                <td>{{ trade['error_message'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4 style="color: black" class="display-5">Secondary trades</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Primary ID</th>
+                            <th>Date time</th>
+                            <th>Side taken</th>
+                            <th>(€) Wallet after trade</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>EUR Value (€)</th>
+                            <th>USD Value ($)</th>
+                            <th>DOGE Value</th>
+                            <th>Status</th>
+                            <th>Success</th>
+                            <th>Error code</th>
+                            <th>Error message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trade in s_trades %}
+                            <tr>
+                                <td>{{ trade['id'] }}</td>
+                                <td>{{ trade['date_time'] }}</td>
+                                <td>{{ trade['taker_side'] }}</td>
+                                <td>{{ trade['wallet_eur_value'] }}</td>
+                                <td>{{ trade['price'] }}</td>
+                                <td>{{ trade['quantity'] }}</td>
+                                <td>{{ trade['eur_value'] }}</td>
+                                <td>{{ trade['usd_value'] }}</td>
+                                <td>{{ trade['doge_value'] }}</td>
+                                <td>{{ trade['status'] }}</td>
+                                <td>{{ trade['success'] }}</td>
+                                <td>{{ trade['error_code'] }}</td>
+                                <td>{{ trade['error_message'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
