@@ -50,8 +50,6 @@ def trade_history():
     df_p_trades = pd.DataFrame(primary_trades)
     df_s_trades = pd.DataFrame(secondary_trades)
     if primary_trades:
-        print(df_p_trades)
-        print(df_s_trades)
         df_p_trades['timestamp'] = df_p_trades['timestamp'].astype('float64')
         df_s_trades['timestamp'] = df_s_trades['timestamp'].astype('float64')
         df_p_trades['date_time'] = df_p_trades['timestamp'].apply(utils.epoch_timestamp_to_date_time)
@@ -62,5 +60,4 @@ def trade_history():
         df_s_trades['success'] = df_s_trades['success'].map(success_map)
         df_p_trades['taker_side'] = df_p_trades['taker_side'].map(side_map)
         df_s_trades['taker_side'] = df_s_trades['taker_side'].map(side_map)
-    # candlestick_chart = Candlestick(candles, 'Dogecoin rate', 'Price').get_json_graph()
     return render_template("trade/history.html", title="Trade history", p_trades=df_p_trades, s_trades=df_s_trades)
