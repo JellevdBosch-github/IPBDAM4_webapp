@@ -22,11 +22,15 @@ def dashboard_overview():
             'high': row.high,
             'low': row.low
         })
-    candles = pd.DataFrame(candles)
-    candles['date_time'] = candles['date_time'].astype('float64')
-    candles['date_time'] = candles['date_time'].apply(utils.epoch_timestamp_to_date_time)
-    candlestick_chart = Candlestick(candles, 'Dogecoin rate', 'Price').get_json_graph()
+    if candles:
+        candles = pd.DataFrame(candles)
+        candles['date_time'] = candles['date_time'].astype('float64')
+        candles['date_time'] = candles['date_time'].apply(utils.epoch_timestamp_to_date_time)
+        candlestick_chart = Candlestick(candles, 'Dogecoin rate', 'Price').get_json_graph()
+    else:
+        candlestick_chart = None
     return render_template("dashboard/index.html", title="Dashboard Overview", candlestick=candlestick_chart)
+
 
 
 @mod_dashboard.route('/wallet')

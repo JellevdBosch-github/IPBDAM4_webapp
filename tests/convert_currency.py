@@ -4,8 +4,8 @@ import json
 
 url = ' https://pro-api.coinmarketcap.com/v1/tools/price-conversion'
 parameters = {
-    'symbol': 'EUR',
-    'convert': 'USD',
+    'symbol': 'DOGE',
+    'convert': 'EUR',
     'amount': 1
 }
 # too lazy to secure key
@@ -21,6 +21,6 @@ session.headers.update(headers)
 try:
     response = session.get(url, params=parameters)
     data = json.loads(response.text)
-    print(data)
+    print(data['data']['quote']['EUR']['price'])
 except (ConnectionError, Timeout, TooManyRedirects) as e:
     print(e)

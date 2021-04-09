@@ -16,8 +16,6 @@
                             <th>Date time</th>
                             <th>Side taken</th>
                             <th>(€) Wallet before trade</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
                             <th>EUR Value (€)</th>
                             <th>USD Value ($)</th>
                             <th>DOGE Value</th>
@@ -33,9 +31,8 @@
                                 <td>{{ trade['id'] }}</td>
                                 <td>{{ trade['date_time'] }}</td>
                                 <td>{{ trade['taker_side'] }}</td>
+                                <td>{{ trade['pattern'] }}</td>
                                 <td>{{ trade['wallet_eur_value'] }}</td>
-                                <td>{{ trade['price'] }}</td>
-                                <td>{{ trade['quantity'] }}</td>
                                 <td>{{ trade['eur_value'] }}</td>
                                 <td>{{ trade['usd_value'] }}</td>
                                 <td>{{ trade['doge_value'] }}</td>
@@ -59,8 +56,6 @@
                             <th>Date time</th>
                             <th>Side taken</th>
                             <th>(€) Wallet after trade</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
                             <th>EUR Value (€)</th>
                             <th>USD Value ($)</th>
                             <th>DOGE Value</th>
@@ -77,8 +72,6 @@
                                 <td>{{ trade['date_time'] }}</td>
                                 <td>{{ trade['taker_side'] }}</td>
                                 <td>{{ trade['wallet_eur_value'] }}</td>
-                                <td>{{ trade['price'] }}</td>
-                                <td>{{ trade['quantity'] }}</td>
                                 <td>{{ trade['eur_value'] }}</td>
                                 <td>{{ trade['usd_value'] }}</td>
                                 <td>{{ trade['doge_value'] }}</td>

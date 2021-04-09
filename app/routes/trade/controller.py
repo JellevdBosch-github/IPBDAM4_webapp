@@ -17,9 +17,7 @@ def trade_history():
     secondary_trades = []
     for row in primary_trades_result:
         primary_trades.append({
-            'id': row.id,
-            'price': row.price,
-            'quantity': row.quantity,
+            'id': row.id,\
             'eur_value': row.eur_value,
             'usd_value': row.usd_value,
             'doge_value': row.doge_value,
@@ -33,9 +31,7 @@ def trade_history():
         })
     for row in secondary__trades_result:
         secondary_trades.append({
-            'original_id': row.original_id,
-            'price': row.price,
-            'quantity': row.quantity,
+            'original_id': row.original_id,\
             'eur_value': row.eur_value,
             'usd_value': row.usd_value,
             'doge_value': row.doge_value,
